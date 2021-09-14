@@ -4,14 +4,36 @@ title:  "Blog-0-Shell Power"
 date:   2021-09-14 03:08:45 -0700
 categories: jekyll update
 ---
-What is a shell?
+<link rel="stylesheet" href="/assets/css/style.css">
 
-A shell is a program, which uses command line interface that allows users to communicate with various programs without the need of graphics (GUI). The shell is an awesome tool for many IT admins because it allows them to login to many servers at once and automate daily tasks.
+<h1>What is a Shell?</h1>
+{: .h1-text}
 
-The shell is useful for many different enviornments. For example, if you are using bash (Bourne Again Shell), these list of commands are very useful.
+Before I explain what a shell is, let's take a look at the following image and see if we can understand why there is no monitors connected to these servers.
 
-`ls` list all files
+![](/assets/img/servers.jpg)
 
-For Powershell
+<center style="color:blue">It's because graphics slows us down!</center>
+<br>
 
-`Get-ChildItem`
+A shell is a program, which uses command line interface as a way to communicate with various programs running on different machines without the need of graphics (GUI). Shell's are awesome because we can use it to login to many servers and automate daily tasks.
+
+
+
+<h1>Commands</h1>
+{: .h1-text}
+
+Most shell commands are similar to each other and if you know one very well, most likely you can find the equvialent command in the another shell program.
+{: .para-text}
+
+Bash           | Description                     | Powershell    |   
+:-------------:| :------------------------------:|:-------------:|
+`ls`           | list directory contents         |`Get-ChildItem`|
+`pwd`          | tells you where you are         |`Get-Location` |
+`echo`         | prints to the terminal          |`Write-Output` |
+`touch`        | creates a file                  |`New-Item`     |
+`cat`          | gets contents of a file         |`Get-Content`  |
+`cd`           | changes directory               |`cd`           |
+{: .display}
+
+
