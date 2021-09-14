@@ -1,0 +1,17 @@
+---
+layout: post
+title:  "Blog-0-Shell Power"
+date:   2021-09-14 03:08:45 -0700
+categories: jekyll update
+---
+What is a shell?
+
+A shell is a program, which uses command line interface that allows users to communicate with various programs without the need of graphics (GUI). The shell is an awesome tool for many IT admins because it allows them to login to many servers at once and automate daily tasks.
+
+The shell is useful for many different enviornments. For example, if you are using bash (Bourne Again Shell), these list of commands are very useful.
+
+`ls` list all files
+
+For Powershell
+
+`Get-ChildItem`
