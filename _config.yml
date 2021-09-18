@@ -23,7 +23,7 @@ email: saikat.barua.994@my.csun.edu
 description: >- # this means to ignore newlines until "baseurl:"
     Weekly blog updates for CIT Senior Design class
 baseurl: /sb64103-blog # the subpath of your site, e.g. /blog
-url: https://sb64103.github.io/ # the base hostname & protocol for your site, e.g. http://example.com
+url: https://sb64103.github.io # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: 
 github_username:  sb64103
 
