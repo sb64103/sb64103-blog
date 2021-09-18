@@ -23,7 +23,7 @@ A shell is a program, which uses command line interface as a way to communicate 
 <h1>Commands</h1>
 {: .h1-text}
 
-Most shell commands are similar to each other and if you know one very well, most likely you can find the equvialent command in the another shell program.
+Most shell commands are similar to each other and if you know one very well, most likely you can find the equvialent command in a another shell program.
 {: .para-text}
 
 Bash           | Description                     | Powershell    |   
@@ -36,4 +36,39 @@ Bash           | Description                     | Powershell    |
 `cd`           | changes directory               |`cd`           |
 {: .display}
 
+
+<h1>Using Functions</h1>
+{: .h1-text}
+
+{% highlight html linenos %}
+
+#!/usr/bin/env sh
+alias lcd=changeDirectory
+
+function changeDirectory {
+    cd $1 ; ls -la
+}
+
+{% endhighlight %}
+
+<br>
+
+In shell, we can write a function and apply it to an alias. This is useful when we want to use it more than once. Just like a method in any program, it can be resuable many times.
+
+<h1>My Opinion - Shell and the Future</h1>
+{: .h1-text}
+
+As Information Technology demands automation, I think shell programming is a good skill to have. Knowng it can help automate many task that can help save money for many employers. When understanding business requirements, good IT professionals can bridge the gap with a healthy infrastructure.
+
+
+<h1>Use Case </h1>
+{: .h1-text}
+
+Here are some useful scripts that might help an IT Team:
+
+<code> 1. Check all server's status email the team members when the server is down </code> <br>
+<code> 2. Create a pipeline build for a software team</code> <br>
+<code> 3. Powershell integrates really nicely with Microsoft Excel </code> <br>
+<code> 4. Managing remote servers when debugging production </code> <br>
+<code> 5. Parsing a file and extracting information validate requirements </code> <br>
 
