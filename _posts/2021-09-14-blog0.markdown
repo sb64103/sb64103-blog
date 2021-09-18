@@ -53,7 +53,7 @@ function changeDirectory {
 
 <br>
 
-In shell, we can write a function and apply it to an alias. This is useful when we want to use it more than once. Just like a method in any program, it can be resuable many times.
+In shell, we can write a function and apply it to an alias. This is useful when we want to use it more than once. Just like a method in any program, it can be re-used many times. In the example above: when ever we write <code> lcd /path </code>. It will run two commands. First, <strong>cd to /path</strong>, then <strong>ls -l </strong> on that directory.
 
 <h1>My Opinion - Shell and the Future</h1>
 {: .h1-text}
