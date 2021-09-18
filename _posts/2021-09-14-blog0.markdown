@@ -11,7 +11,7 @@ categories: jekyll update
 
 Before I explain what a shell is, let's take a look at the following image and see if we can understand why there is no monitors connected to these servers.
 
-<img src="{{site.url}}/{{site.baseurl}}/assets/img/servers.jpg">
+<img src="{{site.url}}//assets/img/servers.jpg">
 
 <center style="color:blue">It's because graphics slows us down!</center>
 <br>
