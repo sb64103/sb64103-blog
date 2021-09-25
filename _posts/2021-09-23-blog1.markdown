@@ -9,8 +9,8 @@ categories: jekyll update
 <h1>Intro</h1>
 {: .h1-text}
 
-In today's software development projects, there are many popular programming languages used. As more projects are building their source code in the cloud, a build tool is required for artifcats to be created and published.
-Each programming langage has their own popular build tool, which are often similar with one another. Choosing the right build tool for a language often comes down to key decisions made by management and software developers of the project.
+In today's software development projects, there are many popular programming languages used. As more projects are building their source code in the cloud, a build tool is required for artifacts to be created and published.
+Each programming language has their own popular build tool, which are often similar with one another. Choosing the right build tool for a language often comes down to key decisions made by management and software developers of the project.
 
 <h1>Interpreted vs Compiled</h1>
 {: .h1-text}
