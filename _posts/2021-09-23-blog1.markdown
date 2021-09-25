@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Blog-1-Building Source Code"
+date:   2021-09-23 03:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+In today's software development projects, there are many popular programming languages used. As more projects are building their source code in the cloud, a build tool is required for artifcats to be created and published.
+Each programming langage has their own popular build tool, which are often similar with one another. Choosing the right build tool for a language often comes down to key decisions made by management and software developers of the project.
+
+<h1>Interpreted vs Compiled</h1>
+{: .h1-text}
+
+<center><img style="-webkit-user-select: none;margin: auto;cursor: zoom-in;background-color: hsl(0, 0%, 90%);transition: background-color 300ms;" src="https://i.imgur.com/MvMxQ1a.gif" width="518" height="290"></center>
+
+<br>
+In programming there are two types of languages we use: Interpreted or Compiled.
+The key difference to understand is that interpreter translates just one statement of the program at a time into machine code but compiled language scans the entire program and translates the whole of it into machine code at once. When we use compiled language, we <strong>need</strong> a build tool.
+
+
+<h1>Popularity</h1>
+{: .h1-text}
+
+This table shows the popularity of the build tool based on the programming language. 
+<br><strong>Note:</strong> Python, Ruby, Javascript are interpreted language and usually don't need a build tool.
+{: .para-text}
+
+Compiled Programming Language | Popular Build Tools     |
+:--------------:| :------------------------------------:|
+`Java`          | Maven, Ant, Gradle                    |
+`C`           | Make, MSBuild, Cake Build               |
+{: .display}
+
+
+<h1>Understanding Phases</h1>
+{: .h1-text}
+
+Each build tool can have a phase. This means the current state of the build. Maven for example has many lifecycle as a phase and in each lifecycle will carry out a task below.
+
+<ul><phase>validate</phase> - validate the project is correct and all necessary information is available </ul>
+<ul><phase>compile</phase>- compile the source code of the project</ul>
+<ul><phase>test</phase>- test the compiled source code using a suitable unit testing framework. These tests should not require the code be packaged or deployed</ul>
+<ul><phase>package</phase> - take the compiled code and package it in its distributable format, such as a JAR.</ul>
+<ul><phase>verify</phase> - run any checks on results of integration tests to ensure quality criteria are met</ul>
+<ul><phase>install</phase> - install the package into the local repository, for use as a dependency in other projects locally</ul>
+<ul><phase>deploy</phase> - done in the build environment, copies the final package to the remote repository for sharing with other developers and projects</ul>
+
+
+
+<h1>Setting up CI/CD</h1>
+{: .h1-text}
+
+When it comes to building software in the cloud, we want to implement the build tool when source code is cloned. Working with compiled languages, DevOps engineers can implement this logic right after a `git checkout`. When the raw source code is cloned to the server, the build process can take place.
+
+<br>
+Steps:
+
+<code> 1. Checkout source code depending on the branch </code> <br>
+<code> 2. Implement the build tool</code> <br>
+<code> 3. Implement the automated testing process </code> <br>
+<code> 4. Depending on test results, push build to server </code> <br>
+<code> 5. Verify build is pushed or rejected </code> <br>
+
+

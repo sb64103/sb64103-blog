@@ -25,3 +25,13 @@ code {
     padding: 2px;
     font-size: 15px;
 }
+
+
+phase {
+    background-color: rgba(190, 226, 235, 0.753);
+    border: 1px solid #a12323;
+    color:black;
+    border-radius: 3px;
+    padding: 2px;
+    font-size: 15px;
+}
