@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "Blog-2-Git, It's Lit"
+date:   2021-09-30 03:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Git is an important tool used by many IT professionals in their day to day tasks. Git is a collaboration tool where the source code can reside in a central server. This allow many clients to check-in and check-out code frequently and keeps a version history of the source code.
+
+<h1>Understanding Origin</h1>
+{: .h1-text}
+
+When pushing and pulling code to and from the remote server, we have to understand the difference between the remote branch and the local branch.
+
+<img src="https://static.javatpoint.com/tutorial/git/images/git-push.png">
+
+The local branch in a repository (repo) is created when a user is working on their source code in their local machine. This code is only available on the user's machine and will need to be pushed for other users to retrieve. The remote branch will have a copy of the source code only when <strong>code is pushed</strong>. If another person pushes new code to the server, then then user will have to pull the latest code. We can distinguish local and remote by the word `origin`, which means that the particular branch belongs to the remote server.
+
+<h1>Popular Commands</h1>
+{: .h1-text}
+
+Git Commands| What does it do?                                  |
+:------------------:| :----------------------------------------:|
+`git pull`          |  gets code changes from the server        |
+`git push`          |  sends code changes to the server         |
+`git clone <url>`   |  copies the repo to the local machine     |
+`git branch`        |  list the branch you are currently in    |
+`git log`           |  shows all the commit logs done in the branch     |
+`git add <file>`   |  adds the file that will be ready to be committed     |
+`git rm <file>`   |  removes the file from being committed     |
+`git commit -m` | allows a message to be used when committing files |
+`git checkout <branch>`| switches the branch |
+`git chckout -b <branch>` | creates a new branch from the current branch |
+
+
+<h1>Branching Strategy</h1>
+{: .h1-text}
+
+Most software developers usually follow a branching strategy in order to reduce merge conflicts. A merge conflict in git occurs when one or more files has two different version and git does not know which version to keep. Keeping source code in different branches will help reduce merge conflicts. Good branching strategy helps reduce merge conflicts because a pull request is usually required. This means the source code will be peer-reviewed and approved to be merge so everyone can pull the latest code.
+
+<img src="https://community.kde.org/images.community/thumb/2/23/Kde-git-workflow.svg/800px-Kde-git-workflow.svg.png">
