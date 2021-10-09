@@ -18,10 +18,10 @@ Virtualization is when we use any physical machines' hardware to run multiple vi
 {: .h1-text}
 
 There are many benefits to using Docker
-<li>- Ability to Run Anywhere: run locally or in a cloud server</li>
-<li>- Fast Deployment: we can use it deploy an applications within seconds</li>
-<li>- Offers Automation: using dockerfile an image can be created instantly</li>
-<li>- Flexibility: multiple images can be created to support different architecture</li>
+<li>Ability to Run Anywhere: run locally or in a cloud server</li>
+<li>Fast Deployment: we can use it deploy an applications within seconds</li>
+<li>Offers Automation: using dockerfile an image can be created instantly</li>
+<li>Flexibility: multiple images can be created to support different architecture</li>
 
 <br>
 
