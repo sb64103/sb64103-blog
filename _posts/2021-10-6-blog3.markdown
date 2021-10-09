@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Blog-3-Let's Get Virtual"
+date:   2021-10-06 05:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style3.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Virtualization is when we use any physical machines' hardware to run multiple virtual machines within it. Docker is a software for virtualization that helps IT infrastructure scale and support business demand. When applications needs to be deployed, docker is like a shipping container because it keeps everything intact.
+
+<center><img src="https://miro.medium.com/max/1000/1*E8IgOSkMTpBRs0w0-Zsx2g.gif"></center>
+
+<br>
+
+<h1>Benefits</h1>
+{: .h1-text}
+
+There are many benefits to using Docker
+<li>- Ability to Run Anywhere: run locally or in a cloud server</li>
+<li>- Fast Deployment: we can use it deploy an applications within seconds</li>
+<li>- Offers Automation: using dockerfile an image can be created instantly</li>
+<li>- Flexibility: multiple images can be created to support different architecture</li>
+
+<br>
+
+<h1>Dockerfile</h1>
+{: .h1-text}
+
+One of the best features of docker is using a <code>Dockerfile</code> to create an image. This helps us save time when we want to start a machine with many services running or a particular directory to be created in order to do some task. Uisng a dockerfile, we are able to achieve full automation as the image can be created from any source or repository.
+
+{% highlight html linenos %}
+
+#gets the image from the docker repository
+FROM ubuntu:18.04
+
+#author -- does not affect code
+MAINTAINER saikat barua <saikat.barua.994@my.csun.edu>
+
+#instructions for the image to update libraries
+RUN apt-get update
+
+#instructions for the image to install a library 'wget'
+RUN apt install -y wget
+
+#instructions for the image to install a library 'curl'
+RUN apt install -y curl
+
+#instructions for the image to create a directory
+RUN mkdir packages
+
+{% endhighlight %}
+
+<br>
+
+Another great benefit of using a dockerfile is that you can run this from any github repository. This means that the image will get created after a git pull has been initiated
+
+`docker build -t Dockerfile  <github repo>`
