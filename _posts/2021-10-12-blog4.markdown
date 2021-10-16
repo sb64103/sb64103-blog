@@ -1,0 +1,59 @@
+---
+layout: post
+title:  "Blog-4-SSH, Be Quiet!"
+date:   2021-10-12 05:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style3.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+In IT, we have to move from one server to another really quickly. The speed at which we login is important because engineers do not want to keep remembering username and password each time. Setting up ssh keys are a good way to login faster. We do not need to remember any username or password as the server stores the information required for authentication.
+
+
+<br>
+
+<h1>Here's How It Works</h1>
+{: .h1-text}
+
+SSH-keys is a cryptographic system which allows the client to log in to a remote system using a public and private key. The public key is usually saved on the remote machine (server), and the private key is safely stored on the local machine of the user.
+
+<center><img src="https://www.ssh.com/hubfs/Imported_Blog_Media/How_does_the_SSH_protocol_work_-2.png"></center>
+
+<br>
+
+<h1>SSH Benefits</h1>
+{: .h1-text}
+
+<li>Secure connection manage the servers</li>
+<li>Multiple devices are support using key-pairs</li>
+<li>Offers Encryption for data transfers</li>
+<li>Allows audit trails for network admin</li>
+
+<br>
+
+<h1>Automation in AWS</h1>
+{: .h1-text}
+
+SSH offers engineers a way to automate task. For example, suppose you want to login to your AWS instance and you want to run some scripts. One of the best way accomplish this task is to authenticate using ssh.
+
+
+This command will login to your instance using the key and allow you start your task.
+<br>
+`ssh -i /path/my-key-pair.pem my-instance-user-name@my-instance-public-dns-name`
+
+
+This command will login to your sandbox machine if a key is setup so you don't have to login with user credentials.
+<br>
+`ssh -i /path/my-key-pair.pem sb64103@@ssh.sandbox.csun.edu`
+
+
+<h1>Automation using Jenkins</h1>
+{: .h1-text}
+
+Jenkins is a CI/CD tool that helps with the execution of automated scripts. We can use ssh to run jobs in remote machines as well. The way we would do this is to set up a key-vlaue pair for the remote machine and use the jenkins ssh credential manager to keep the key in a secure location. At run time, to connect to the server, the ssh service will use this key.
+
+<br>
+<center><img src="https://issues.jenkins.io/secure/attachment/31827/CredentialsConfig-fileOnJenkins.png"></center>
+
+For devops admins, this is important that keys are stored here. It can be removed at any time and admins can log each time the key are used. This helps them successful pipelines without the risk of security violations.
