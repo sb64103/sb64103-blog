@@ -1,0 +1,84 @@
+---
+layout: post
+title:  "Blog-5-Run-the-Play"
+date:   2021-10-21 05:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+Working in IT, you are likely going to do repetitive tasks. What if you could solve problems once and then automate your solutions going forward? This is what Ansible was created to do. Ansible scripts can help manage and maintain servers with basic commands and easy to understand syntax
+
+<center> <img src="http://puu.sh/jVMuO/3a08989cf4.gif"> </center>
+
+<br>
+
+|Benefits of Ansible|
+|:-------------|
+|Save time and be more productive|
+|Eliminate the need to do the same steps|
+|Reduces mistakes|
+|Create better collaboration|
+|Opportunity to scale|
+
+
+<h1>YAML Syntax</h1>
+{: .h1-text}
+
+For Ansible, nearly every YAML file starts with a list. Each item in the list is a list of key/value pairs, commonly called a “hash” or a “dictionary”
+
+>---
+&#35; a list of task for a job <br>
+-- create package directory <br>
+-- install package wget<br>
+-- install prometheus<br>
+-- download and extract prometheus<br>
+
+<h1>Playbook</h1>
+{: .h1-text}
+
+Ansible playbook is essentially a blueprint of the automated task that is going to be performed. It states the definition and implementations of each actions you want to do in a particular server. So we can create one file that will repeat with n amount of servers we define.
+
+The same task list above, we can re-create using ansible playbook.
+
+{% highlight html linenos %}
+
+---
+- name: Using Ansible for Prometheus install
+  hosts: localhost
+
+  tasks:
+
+  #creating package directory
+    - name: Creation of Packages directory
+      file: 
+        path: /tmp/packages
+        state: directory
+
+  #installing package wget
+    - name: Install Packages
+      apt:
+        name: wget
+        state: present
+        update_cache: true
+  
+  #get prometheus file
+    - name: Download Prometheus
+      get_url: url=https://github.com/prometheus/prometheus/releases/download/v2.8.0/prometheus-2.8.0.linux-amd64.tar.gz dest=/tmp/packages
+  
+  #download and unarchive 
+    - name: Untar Prometheus
+      unarchive:
+        src: /tmp/packages/prometheus-2.8.0.linux-amd64.tar.gz
+        dest: /tmp/packages
+
+{% endhighlight %}
+
+<h1>Run the Play!</h1>
+{: .h1-text}
+
+To the run the file, you will need to name the file with an extentions of .yml and run the following command:
+
+`ansible-playbook -i localhost <file/path/to/filename.yml>`
