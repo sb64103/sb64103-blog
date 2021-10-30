@@ -1,0 +1,56 @@
+---
+layout: post
+title:  "Blog-6-RESTful State"
+date:   2021-10-26 03:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+An API is a set of rules that define how applications or devices can connect to and communicate with each other. Rest is a framework, where it allows developers to be flexible when designing their application. 
+
+
+<h1>Rules to REST</h1>
+{: .h1-text}
+
+1. Uniform interface: all api requests should look the same
+2. Client-server decoupling: client and server must be independent
+3. Statelessness: must include all info on the server as client's requests are not allowed to store the data on the server
+4. Layered system architecture: one api can call another
+5. Code on demand: can send static content
+
+<center><img src="https://c.tenor.com/7_oMsqUiHTUAAAAd/mochi-mochi-peach-cat-hot.gif" width="150" height="200" /></center>
+
+<h1>What is a JSON</h1>
+{: .h1-text}
+
+JSON stands for Javascript Object Notations. JSON is the format in which restful api can exchange information. JSON which is pronounced "jason", is easy to read and understand. Complex json objects are designed so it can be mapped to the application faster. 
+
+{% highlight html linenos %}
+
+{  
+    "student": {  
+                "studentName": "Saikat Barua",   
+                "major": "CIT",   
+                "isEnrolled": true  
+               }  
+}  
+
+{% endhighlight %}
+
+The `{` `}` means that this particular response is a json object of student. The `key` is followed by a`:` and then the `value` is a string or boolean. Certain data type can be returned but majority of the time it is string.
+
+key | value    |
+:--------------:| :------------------------------------:|
+studentName|Saikat barua|
+major| CIT              |
+isEnrolled| true |
+
+
+<h1>Sending a Request</h1>
+{: .h1-text}
+
+When we send request to an api endpoint, we often get a response from the server. When the response is confirmed by the server, we often get an `2xx` network status code. Any error we get from the server, we can diagnose where the error came from. `4xx` is a request where the server wasn't able to process the client's information. A `5xx` is when the server could not process the request. Understanding these status code helps IT professionals determine the point of failure right away.
+
