@@ -1,0 +1,88 @@
+---
+layout: post
+title:  "Blog-7-Node Package Manager"
+date:   2021-11-03 06:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+Node.js is a powerful runtime enviornment that is designed to build web based or mobile applications. Node can be used to run server side script and allows developers to create API's in one language.
+
+<center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/440px-Node.js_logo.svg.png" width="180" height="120"></center>
+
+<br>
+
+|Benefits of Node|
+|:-------------|
+|Easy Scalability|
+|High Performance|
+|Fullstack Javascript|
+|Large Community support|
+|Package Manager|
+
+<h1>Node Package Manager</h1>
+{: .h1-text}
+Node package manager is a good CLI tool that helps JS applications manage their own resources. It puts modules in place so that node can find them.
+
+<center><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Npm-logo.svg/1920px-Npm-logo.svg.png" width="100" height="50"></center>
+
+
+<h1>Popular JS libraries</h1>
+{: .h1-text}
+
+A package is a library that helps software developers write their own code. It is usually open source licensed and provides good documentations on how to use the specific functionalities.
+
+Package | Use Case     |
+:----------------:| :----------------------------------|
+`Grunt`           | Helps automate many tasks          |
+`Mocha`           | Good for unit testing              |
+`Angular`         | Framework to build front end       |
+`Node MySQL`      | Datebase server                    |
+`Faker     `      | Helps generate mock data           |
+
+<h1>Installing a Package</h1>
+{: .h1-text}
+
+Once we have node installed on our machine, we can use npm to install a package for our software. 
+
+`npm install angular`
+
+`npm install mocha`
+
+`npm install grunt`
+
+These three commands will install angular, mocha, and grunt to the project
+
+<h1>Using package.json</h1>
+{: .h1-text}
+
+Since we like automation in IT, we don't want to manually install each library we want to use through the command line. We can use a file that can do this for us.
+
+A package.json is a file in which it is the central place to configure and describe how to interact with our application.
+This file can be used to tell node to download the exact library to download for our project.
+
+{% highlight html linenos %}
+
+"dependencies":{
+
+  "angular/common": "~8.0.1",
+  "mocha":"~9.1.3",
+  "grunt": "^1.4.1"
+
+}
+
+{% endhighlight %}
+
+This package.json can be used to update the versions and also define a particular version that we want downloaded. We use `~` to denote approximately equivalent to a version or `^` to specify compatible with version, which means it will update to any latest version that is compatible to the version defined in the json.
+
+We can install all of our libraries by using npm (node package manager). The command will need to execute on the root directory of the project.
+
+   `npm install` 
+
+We can also update the libraries if there is a version change. We can use the following command.
+
+   `npm update` 
+
