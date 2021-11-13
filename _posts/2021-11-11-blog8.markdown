@@ -1,0 +1,71 @@
+---
+layout: post
+title:  "Blog-8-Apache Config"
+date:   2021-11-11 03:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+Apache is a open source web server that is used in the real world to host web sites and web-applications. Apache allows you to run a secure website without too many configurations.
+
+<center><img src="https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_dc7900ca8b7b1ffa938cf62c40bfe2bf/apache-server.png" width="300" height="200"></center>
+
+<h1>What defines a web server?</h1>
+{: .h1-text}
+
+A web server primary role is to serve client's request on the internet. Simply, web server's act as the middle man where it can fulfill a user's request and deliver them in a timely manner.
+
+|Pro's|Con's|
+|:-------------|:-------------|
+|Open source and free, even commercial use|Performance bottlenecks|
+|Stable software|Open configurations lead to security risks|
+|Regular updates for security|
+|Easy to configure|
+
+<h1>What is .htaaccess?</h1>
+{: .h1-text}
+
+A `.htaccess` file provide a way to make configuration changes to a particular directory. It is really important to understand these types of restrictions because as IT professionals, we have to make sure that we only share information with those who have permission to access the directory.
+
+This type of file also allows us to make sure the webserver is only available to a certain range of IP address. We can modify the file to order deny, allow :
+
+```
+allow from 192.168.0.54
+
+deny from 192.168.0
+```
+
+<h1>What is apache directives?</h1>
+{: .h1-text}
+
+We configure Apache software by modifying the configuration file. The files have a set of instructions that defined by Apache to do certain things. For example, suppose I wanted to change the root directory of the server. This would be done by:
+
+```
+ServerRoot /folder/to/new/root
+```
+
+<h1>Popular Directives</h1>
+{: .h1-text}
+
+Directive | What it means     |
+:----------------:| :----------------------------------|
+`DocumentRoot`| defines the document root of the server
+`mod_rewrite`| allows Apache to rewrite requested URLs on the fly          |
+`alias`| allows you to point your Web server to directories outside your document root|
+`VirtualHost`| allows you to create multiple virtual hosts on a single Apache server |
+
+<h1>Apache + Docker</h1>
+{: .h1-text}
+
+Apache can be configured using a `Dockerfile` to set up and even host a particular website in your docker image. We can do this by the following logic:
+
+1. Pull an image
+1. Install apache
+1. Configure the document root using bash commmands
+1. Expose the 8080 port
+1. Copy content of html in docker container
+1. Verify and test that the website can be launched
+
