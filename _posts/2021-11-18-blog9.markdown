@@ -1,0 +1,95 @@
+---
+layout: post
+title:  "Blog-9-Express Backend Development"
+date:   2021-11-18 06:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style6.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+
+Express is a backend framework that helps the server define and create routes for the web-application. It is middleware that is needed for frontend and backend code to communicate with each other.
+
+
+<div class="row">
+   <div class="column">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqqHX85EQUaMhQ2wH14-SSS-fr55PzrDLs_eZAdM6TJ2-akrf6_UW8Pd-NaCYt66FJ9Qs&usqp=CAU" width="100" height="100">
+   </div>
+   <div class="column">
+      <img class="img-padding" src="https://www.bairesdev.com/wp-content/uploads/2021/07/Expressjs.svg" width="250" height="150"> 
+   </div>
+   <div class="column">
+      <img src="https://www.logolynx.com/images/logolynx/c0/c0f84d9509d6690a70ce4c596f740c62.png" width="90" height="75">
+   </div>
+</div>
+
+
+
+
+
+
+
+<h1> What are different actions we can do? </h1>
+{: .h1-text}
+
+1. `POST`- Create Something
+1. `GET` - Get Something
+1. `PUT` - Change Something
+1. `DELETE` - Remove Something
+
+<h1> How does Express communicate with the browser? </h1>
+{: .h1-text}
+
+In Express, we define a file (server.js) to listen to a particular port. When the browser is access that port on the server, we can define what to do there.
+
+````javascript
+app.listen(3000, function() {
+  console.log('listening on 3000')
+})
+
+````
+
+<h1> How does endpoint work with Express? </h1>
+{: .h1-text}
+
+When Express is served (meaning the server is running), it is defined by the `/` in the url. Anything after the slash, we can define as an endpoint. We can configure the server.js code display something when the endpoint is called by the user.
+
+For example: A user is on `/greetings`, and we want to display 'Hello' message.
+
+````javascript
+app.get('/greetings', function(req, res) {
+  res.send('Hello')
+})
+
+````
+
+The get function above takes two arguments. The argument req stands for request and res stands for response. When the user navigates to `/greetings`, we are sending a response with the following string 'Hello'
+
+<h1> How to serve a index.html? </h1>
+{: .h1-text}
+
+We can also modify server.js file to serve the index.html file when a user is on a particular webpage.
+
+For example: Suppose the user is on /home, Express can make sure the proper html file is served at that location.
+
+````javascript
+app.get('/home', (req, res) => {
+  res.sendFile(__dirname + '/index.html')
+
+````
+
+With this configuartions, the user is on www.webapp.com/home, all users will be served the index.html
+
+
+<h1> Nodemon </h1>
+{: .h1-text}
+
+Everytime we make a change to server.js, we need to restart the server to see the changes. Nodemon is a process that can help develop faster because it will always restart the server if any files have been modified. The installation of this service only requires the following code:
+
+`npm install nodemon --save-dev`
+
+<h1> Conclusion </h1>
+{: .h1-text}
+
+As I use Express for building my senior design application, I find it very easy to write code for the backend. Express allows the backend architecture to be very flexible. It also allows an easy configuration with `.env` files. When we want to change the enviornment, Express can do so with minimal code changes. This helps dev-ops deploy multiple versions of code with minimal overhead.
