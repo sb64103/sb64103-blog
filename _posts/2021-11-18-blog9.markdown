@@ -4,7 +4,7 @@ title:  "Blog-9-Express Backend Development"
 date:   2021-11-18 06:08:00 -0700
 categories: jekyll update
 ---
-<link rel="stylesheet" href="/sb64103/assets/css/style6.css">
+<link rel="stylesheet" href="/sb64103-blog/assets/css/style6.css">
 
 <h1>Intro</h1>
 {: .h1-text}
