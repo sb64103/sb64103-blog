@@ -4,7 +4,7 @@ title:  "Blog-9-Express Backend Development"
 date:   2021-11-18 06:08:00 -0700
 categories: jekyll update
 ---
-<link rel="stylesheet" href="/assets/css/style6.css">
+<link rel="stylesheet" href="/sb64103/assets/css/style6.css">
 
 <h1>Intro</h1>
 {: .h1-text}
@@ -23,11 +23,6 @@ Express is a backend framework that helps the server define and create routes fo
       <img src="https://www.logolynx.com/images/logolynx/c0/c0f84d9509d6690a70ce4c596f740c62.png" width="90" height="75">
    </div>
 </div>
-
-
-
-
-
 
 
 <h1> What are different actions we can do? </h1>
