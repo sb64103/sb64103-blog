@@ -1,0 +1,72 @@
+---
+layout: post
+title:  "Blog-10-CI/CD Pipelines"
+date:   2021-12-01 04:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/sb64103-blog/assets/css/style.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+In today's software development, many teams need to build more frequently and IT professionals have to be agile. When software teams develop source code, it often comes with management implementations like deploying after each build. `Continuous Integration` (CI) is a good concept to know when we want to automate certain things.
+
+<h1>What is CI?</h1>
+{: .h1-text}
+Continuous Integration revolves around building and testing software more frequently. We use different tools to incorporate the build process.
+
+<h1>What is Jenkins?</h1>
+{: .h1-text}
+Jenkins is a software that runs on a server that can trigger builds. We use jenkins to start the process of a task. In Jenkins, we have enviornment variables. There is also a interface to help set up jobs.
+
+<center><img src="https://www.jenkins.io/images/logo-title-opengraph.png" /></center>
+
+We can use `Jenkinsfile` file to deploy our builds to different enviornment:
+
+{% highlight html linenos %}
+
+pipeline {
+    agent any
+
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
+
+{% endhighlight %}
+
+<h1>How do we create a job?</h1>
+{: .h1-text}
+
+A job is can have many tasks in order to have a successful build. We can define all the task after we create a job in jenkins. To create  a job in Jenkins, we can 
+
+1. We can define the job name
+1. We can define what type of job it will do.
+1. Confirm the job
+
+<center> <img src="https://www.guru99.com/images/1/091318_0458_HowtoCreate4.png"> </center>
+<br>
+<h1>Using source control</h1>
+{: .h1-text}
+
+We can also define the source control for our build. There is a git manager that can be used to store a token so the username and password is not stored on the server. It is important to keep security in mind when creating a pipeline.
+
+<br>
+<h1>Pipeline</h1>
+{: .h1-text}
+A pipeline is a series of jobs that will be executed. Multiple jobs are created to invoke a pipeline. This is a workflow that can be used routinely to build and deploy more frequently.
+
+<center> <img src="https://www.donaldonsoftware.com/images/pipeline.gif"> </center>
