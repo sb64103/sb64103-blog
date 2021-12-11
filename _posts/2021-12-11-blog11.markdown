@@ -1,0 +1,68 @@
+---
+layout: post
+title:  "Blog-11-Selenium WebDriver"
+date:   2021-12-10 06:08:00 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/sb64103-blog/assets/css/style.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Selenium is an open source tool that helps automate browsers. This is useful for testing and validation used by software QA's. Selenium supports many languages such as Java, Javascript, Ruby, and even C Sharp. Selenium has many use cases for the real world.
+
+<h1>Architecture</h1>
+{: .h1-text}
+The driver controls the real browser through HTTP and JSON wire protocol. Each driver is specific to the browser it needs to control.
+
+<center><img src="https://s3.amazonaws.com/oodles-technologies1/blog-images/7f0d6c80-008a-4cb5-92ad-a40cc84af22e.png" /></center>
+
+<h1>What is a Web Driver?</h1>
+{: .h1-text}
+WebDriver is a driver for the specific browser. When we want to use a mouse for a computer, we need to install the driver software to control the mouse and all other hardware functions from the mouse. This is similar to the browser. There are many different browser and each browser needs their own driver in our source code.
+
+{% highlight html linenos %}
+
+//WebDriver implementation in java for Chrome
+WebDriver driver = new ChromeDriver();
+
+// opens browser to csun.edu
+driver.get("https://www.csun.edu/");
+
+// finds link then clicks the link
+driver.findElement(By.linkText("Skip to Portal")).click();
+
+// closes browser
+driver.close();
+
+{% endhighlight %}
+
+<h1>What is TestNG?</h1>
+{: .h1-text}
+TestNG, where the NG stands for `N`ext `G`eneration is a modern framework used by many developers. It is supported in Java and used by software qa engineers to develop a framework for testing and validation of web based applications.
+
+<h1>TestNG Configuartion</h1>
+{: .h1-text}
+To run multiple test (which are called suites), TestNG uses xml as configuration. A suite can be configured using the following xml:
+
+{% highlight html linenos %}
+
+<test name="TestSuite1" preserve-order="false">
+  <classes>
+ <!-- Running two methods for test1 !-->
+    <class name="test.Test1">
+      <methods>
+        <include name="method1" />
+        <include name="method2" />
+      </methods>
+    </class>
+ 
+    <class name="test.Test2" />
+ 
+  </classes>
+</test>
+
+{% endhighlight %}
+
+<h1>Running Headless</h1>
+{: .h1-text}
+Test can be executed on any machine. It can be executed on a linux server as well. Some browsers like chrome support testing headless. This means the browser does not have any graphics while executing UI actions. This helps many engineers test faster and find bugs in the applications faster.
