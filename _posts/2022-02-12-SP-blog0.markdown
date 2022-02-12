@@ -1,0 +1,83 @@
+---
+layout: post
+title:  "SP-Blog-0-Not allowed to sit at the iptables"
+date:   2022-02-12 03:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<h1>What are the IP Tables?</h1>
+{: .h1-text}
+
+`iptables` is a program that can allow a system admin to configure the ip packet filter rules in a linux firewall.
+
+There are 3 main tables but a total of 5 tables. Each table has it's own roles. 
+
+Table Name          | Role                     |
+:-------------:| ------------------------------|
+`Filter`| Make a decision whether to allow a packet to continue to it's intended destination or deny it's request. |
+`NAT`| Provide Network Address Translation rules, route the packets when direct access is not possible  |
+`Mangle`| Modify IP headers of the packet |
+`RAW`| Used for connection tracking, marking and view packets |
+`Security`| SET SELinux tagging |
+
+<h1>What are Chains?</h1>
+{: .h1-text}
+
+Chains are points in packets where you can apply the rules. 
+
+1. `Pre-Routing`- Any incomming packet very soon after entering the network stack
+1. `Input` - When packet enters the network stack
+1. `Forward` - Packet routed through the system
+1. `Output` - Packet orginated and going out
+1. `Post Routing` - After routing decision and packet going on wire
+
+
+**Note: Not every chain is available in each table.**
+
+<img src="https://www.linode.com/docs/guides/what-is-iptables/iptables-table-of-tables_hu88cb8c649aaa25cfa770d29e61e8e858_43848_1388x0_resize_q71_bgfafafc_catmullrom_2.jpg">
+
+<h1>What are rules?</h1>
+{: .h1-text}
+
+User defined command to manipulate the network traffic. As each chain is called, the packet will be checked in order and the rule will be applied.
+
+Matching component can include:
+
+- Protocol
+- IP Address
+- Port Address
+- Interfaces
+- Headers
+
+Target componenet can be terminating or non-terminating:
+
+- Accept
+- Drop
+- Queue
+- Return
+- User-Defined
+
+<h1>What are syntax?</h1>
+{: .h1-text}
+
+We can apply basic rules like blocking a website or removing that rule.
+**Note: You might need to run sudo**
+
+{% highlight html linenos %}
+#basic syntax
+iptables -t[table] -options[chain] [matching component] [action componenet]
+
+#if we want to block a website (youtube)
+iptables -A INPUT -s youtube.com -j DROP
+
+#to remove the rule from iptables (since the first rule was applied, we note that it was 1)
+iptables -D INPUT 1
+
+#to check the rules in the main filter table
+iptables -L -n -v
+
+#we can also block all network request
+iptables -P INPUT DROP
+
+{% endhighlight %}
