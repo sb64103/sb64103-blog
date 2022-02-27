@@ -1,0 +1,93 @@
+---
+layout: post
+title:  "SP-Blog-2-Github Actions"
+date:   2022-02-24 07:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Integrated with github, it is a CI/CD platform that allows teams to build, test, and deploy their applications. Creating pipelines can be done using actions or events and this tool is open source, which allows integration with other applications.
+
+<h1>What is a Workflow?</h1>
+{: .h1-text}
+A workflow can be configured by an automated process that will run one or more jobs. Workflows is created using YAML file, which is checked in to your repository and will run when triggered by an event in your repository, or they can be triggered manually, or at a defined schedule.
+
+Events can defined as:
+
+<li> Code check in </li>
+<li> Pull Request </li>
+<li> After branch merges </li>
+<li> Nightly Schedule </li>
+
+<br>
+
+For example, if we want our job to run if code has been checked into release or main branch, we can use the following syntax in our yaml file. *
+```
+on:
+  push:
+    branches:
+      - main
+      - 'releases/**'
+```
+
+<h1>What are Jobs?</h1>
+{: .h1-text}
+Jobs are a set of steps in a particular workflow. An example out of context, let's say you want to login to an application and you want to create a job for this workflow. Your set of steps are open the application url, enter credentials, and click login. So we can break the job into these 3 small steps that will create the job of login. There are multiple configurations that a job can do. For example, we can make the job depend on another job. In our example above, if we have a job for logging out, we might want to wait for log in to finish.
+
+<img src="https://www.gss.com.tw/images/easyblog_articles/788/Jenkins-Pipeline-Parallel.png">
+
+An example of the code below shows that we can do setup, build, test. The chronology is important when creating the job.
+
+```
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./setup_server.sh
+  build:
+    needs: setup
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./build_server.sh
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - run: ./test_server.sh
+```
+
+<h1>What are Secrets?</h1>
+{: .h1-text}
+Secrets are encrypted environment variables that you create in an organization, repository, or repository environment. These objects contain sensitive information like account credentials. When we create all of our jobs, we want to make sure our credentials is not compromised at any step.
+
+Once we define secrets as a global variable, we can use the secrets name and the value will remain encrypted.
+
+```
+steps:
+  - shell: bash
+    env:
+      SUPER_SECRET: ${{ secrets.SuperSecret }}
+    run: |
+      example-command "$SUPER_SECRET"
+```
+
+
+<h1>What are Matrix?</h1>
+{: .h1-text}
+Matrix allows us to mix and match to different version of configuration. For example, if we want run our app with a different version of npm to check for compatibility, we can use matrix to do so.
+
+```
+runs-on: ${{ matrix.os }}
+strategy:
+  matrix:
+    os: [macos-latest, windows-latest, ubuntu-18.04]
+    node: [8, 10, 12, 14]
+    include:
+      # includes a new variable of npm with a value of 6
+      # for the matrix leg matching the os and version
+      - os: windows-latest
+        node: 8
+        npm: 6
+```
