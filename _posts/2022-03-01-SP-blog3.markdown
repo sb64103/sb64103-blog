@@ -1,0 +1,110 @@
+---
+layout: post
+title:  "SP-Blog-3-Terraform"
+date:   2022-03-01 06:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Terraform helps manage IT infrastructure as code and creates it as and when it is needed. For example, we can create scripts to set up an application server and tear it down whenever we want.
+
+<center> <img src="https://openupthecloud.com/wp-content/uploads/2019/10/0_3i0MOCi2wHX607Jp.png?ezimgfmt=ng:webp/ngcb2"> </center>
+
+<h1>Helpful Commands</h1>
+The general syntax to use terraform:
+`terraform <command>` 
+
+Here are some useful commands to know
+
+command | What does it do?    |
+:--------------:| ------------------------------------|
+init| creates the inital directory|
+reresh| refreshes the current state |
+output| views Terraform outputs |
+apply | applies the terraform code and builds it|
+destroy| destroys what was built with Terraform |
+graph | creates DOT formatted graph |
+
+<h1>Setting up terraform</h1>
+{: .h1-text}
+
+Depending on the operating system, we can use brew or chocolatey to install terraform
+
+```
+brew (mac):
+  brew tap hashicorp/tap
+  brew install hashicorp/tap/terraform
+
+chocolatey (windows)
+  choco install terraform
+```
+<h1>What is a Terraform module?</h1>
+{: .h1-text}
+Modules allows us to put multiple resources under one configuration.
+
+For example:
+Suppose we want a web server set up with a subnet, instance, security group we need. We can package that into a module so that it can be reused as many times as needed.
+
+<h1>Files in Terraform</h1>
+{: .h1-text}
+
+Each of these files has a purpose in Terraform module
+
+filename | Why is it important to the module? |
+--------------| ------------------------------------|
+main.tf | contain the main set of configuration |
+variables.tf | contain the variable definitions |
+outputs.tf | contain the output definitions |
+
+<h1>Module Folder Structure</h1>
+{: .h1-text}
+
+This is a folder structure of how a module can be created and later called from a parent-child relationship.
+
+```
+-module-1
+  -main.tf <------child
+  -outputs.tf
+  -variables.tf
+-module-2
+  -main.tf <------child
+  -outputs.tf
+  -variables.tf
+-main.tf   <------parent 
+
+```
+<h1>How to call a module</h1>
+{: .h1-text}
+
+main.tf
+
+```
+provider "aws" {
+   region     = var.web_region
+   access_key = var.access_key
+   secret_key = var.secret_key
+}
+
+#we can call the module from each pacakage
+module "webserver-1" {
+  source = ".//module-1"
+}
+
+module "webserver-2" {
+  source = ".//module-2"
+}
+
+```
+This allows us to configure and re-use as many times.
+
+<h1>Common Best Practices of Terraform</h1>
+{: .h1-text}
+
+<ul> Run terraform command with var files</ul>
+<ul> Use a consistent file structure across your projects.</ul>
+<ul> Test your code</ul>
+<ul> Use a consistent naming convention</ul>
+<ul> Use modules when possible </ul>
+
