@@ -1,0 +1,139 @@
+---
+layout: post
+title:  "SP-Blog-4-Who is JSON?"
+date:   2022-03-11 03:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+JSON ("jay son") stands for JavaScript Object Notation. It is a popular format for representing data. In the real world, it can be used by many applications to talk to one another.
+
+JSON is built with two principles that hold the foundation:
+
+1. A collection (list) of name and value pairs.
+1. An ordered list of values (array)
+
+<h1>Understanding the JSON Structure:</h1>
+{: .h1-text}
+
+```json
+
+{
+  "id": "1",
+  "name": "Saikat Barua",
+  "class": "CIT 481"
+}
+
+```
+The foundation principle of json starts with a beginning `{` 
+
+Then followed by the name and key value pairs:
+   
+```
+key: id 
+value: 1  
+```
+
+```
+key: name 
+value: Saikat Barua  
+```
+
+```
+key: class
+value: CIT 481
+```
+
+We then use the closing brace to complete the json object `}` 
+
+<h1>What are JSON use cases?</h1>
+{: .h1-text}
+
+<ul> Store Data </ul>
+```json
+
+{
+  "name": "John Doe",
+  "age": "24",
+  "email": "jdoe@gmail.com"
+}
+
+```
+
+<ul> Generate a JSON object from user form in an application</ul>
+
+```json
+{
+  "name": "John Doe",
+  "email": "jdoe@gmail.com",
+  "dob": "02-01-1988",
+  "username": "jdoe",
+  "password": "dnw3is#i2nj"
+}
+```
+
+<ul> Transfer Data between Systems (for example: Map Application)</ul>
+
+```json
+{
+ "street": "2 broadway",
+ "city": "New York",
+ "zip": 11029,
+ "state": "NY"
+}
+
+```
+
+<ul> Use for Configuration </ul>
+
+```json
+{
+    "from_port": 80,
+    "to_port": 3000,
+    "protocol": "tcp",
+    "cidr_blocks": ["0.0.0.0/0"]
+}
+
+```
+<h1>Complex JSON structure:</h1>
+{: .h1-text}
+
+<ul> We can define an array of json object by using '['  and  ']' square braces in our syntax </ul>
+
+```json
+[
+  {
+    "name": "John Doe",
+    "age": 31,
+    "email": "jdoe@gmail.com",
+    "relatives": [
+      "Jane Doe",
+      "Jimmy Doe",
+      "Json Doe"
+    ]
+  },
+  {
+    "name": "Jane Doe",
+    "age": 27,
+    "email": "jane@gmail.com",
+    "relatives": [
+      "John Doe",
+      "Jimmy Doe",
+      "Json Doe"
+    ]
+  }
+]
+```
+
+<ul> The object above shows a collection of json values in an array. The first array has two records. The second array is inside in first array </ul>
+
+<h1>JSON and Data Format</h1>
+{: .h1-text}
+
+<ul> <li> JSON is mainly string data format. It almost always represent strings. </li> </ul>
+
+<ul> <li> JSON requires double quotes to be used around strings and property names </li> </ul>
+
+<ul> <li>  If json is in the incorrect syntax, it can cause many errors  </li> </ul>
