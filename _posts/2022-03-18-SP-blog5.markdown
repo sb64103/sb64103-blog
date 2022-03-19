@@ -1,0 +1,106 @@
+---
+layout: post
+title:  "SP-Blog-4-Writing Cypress Test"
+date:   2022-03-18 04:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Cypress is a testing tool for web based application built in any javascript framework. We can use cypress to test the functionality of pages created using Angular or React. Cypress runs in the node enviornment. We need to make sure node is installed.
+
+<center><img src="https://www.cypress.io/static/cypress-io-logo-social-share-8fb8a1db3cdc0b289fad927694ecb415.png" width="200" height="120"></center>
+
+
+To install cypress, we can use eiter homebrew, yarn or node pacakge manager (npm).
+
+```npm install cypress```
+
+<h1>Folder Structure</h1>
+{: .h1-text}
+Cypress has a simple folder structure that we must follow. We can organize tests, page objects, and data using the recommended folder structure from cypress documentation.
+
+```
+/cypress
+  /fixtures
+    - data.json
+
+  /integration
+    /release_4_0
+      /google-pages
+        - verify.home.page.spec.js
+
+  /plugins
+    - index.js
+
+  /support
+    - commands.js
+    - index.js
+  ````
+
+||Type | What does it do?                                  |
+:------------------:| :----------------------------------------:|
+integration   | directory      |  defines the testing folder (regression, smoke, integration) |
+release_4_0   |directory    |  folder can specifiy which release the test belong to        |
+google-pages |directory    |  all test under this folder for google pages     |
+verify.home.page.spec.js   |file  |  test file for verifying google home pages     |
+plugins | directory|any plugins for the the dashboard page |
+support | directory |any framework helpers that can re-used |
+
+
+<h1>Writing a Test</h1>
+{: .h1-text}
+
+The `describe` takes the argument of a string. In this part we want to write what we are testing. Each `it` block is a series of test for the describe. You can have as many it block as needed.
+
+```js
+describe('Google home page tests', () => {
+  it('Should have Google in page title', () => {
+    // write the test here
+  })
+})
+```
+
+We can navigate to a page using `visit` method on the cypress (cy) object
+
+```cy.visit('https://google.com')```
+
+We can grab the page title once the page loaded
+
+``` cy.title() ```
+
+Because the function title() returns a string, we can chain an assertion using `should`. An assertion is the validation we are doing to check if the page title is equal to Google.
+
+``` cy.title().should('eq', 'Google')```
+
+We can interact with the document by finding elements using css selectors. If it's an input, we can interact by typing a text or keys from the keyboard.
+
+```cy.get('#input').type('Searching on Google').type('{enter}')```
+
+We can also interact with elements by clicking. Since there can be more than one button, we can use `first` to tell cypress we want the first item on our button list.
+
+```cy.get('.query-btn').first().click()```
+
+
+<h1>Putting it all together</h1>
+{: .h1-text}
+
+We can now add two test to our Google page. We simply add two it blocks to the describe. This is our `verify.home.page.spec.js`
+
+{% highlight html linenos %}
+
+describe('Google home page tests', () => {
+  it('Should have Google in page title', () => {
+    cy.visit('https://google.com')
+    cy.title().should('eq', 'Google')
+  })
+
+  it('be able to type search query', () => {
+    cy.visit('https://google.com')
+    cy.get('#input').type('Searching on Google').type('{enter}')
+  })
+})
+{% endhighlight %}
+
+We are now ready to run our test, which will be covered in our next blog.
