@@ -1,0 +1,99 @@
+---
+layout: post
+title:  "SP-Blog-6-Running Cypress Test"
+date:   2022-04-01 04:08:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+After writing our cypress test, we can execute using different run configurations. In CLI, Cypress supports testing using headless browsers. This often improves performance of overall test execution.
+
+Example of Cypress test runner without CLI:
+
+<img src="https://glebbahmutov.com/blog/images/cy-tips-and-tricks/with-delay.gif">
+
+Example of Cypress test in CLI (headless):
+
+<img src="https://glebbahmutov.com/blog/images/publish-custom-command/ci-passes.gif">
+
+
+<h1>How are Browsers passed to test execution?</h1>
+{: .h1-text}
+The browser argument can be set using the following values:
+
+<table>
+<tr> 
+  <th> Browser values: </th> 
+  <td> chrome </td> <td> chromium </td>
+  <td> edge </td>  
+  <td> electron </td>
+  <td> firefox </td>
+</tr>
+</table>
+The agument to run cypress using a different browser:
+
+```cypress run --browser chrome```
+
+We can run the browser headless as well. This means no GUI is generated.
+
+```cypress run --headless --browser chrome```
+
+<h1>Cypress Run Options: </h1>
+{: .h1-text}
+
+|Option|Description|
+|:-------------|:-------------|
+|--browser, -b| browser with the given name |
+|--ci-build-id| specify a unique identifier for a run to enable grouping or parallelization |
+|--config, -c | Used to specify a configuration. |
+|--config-file, -C | Used to specify a configuration file |
+|--env, -e| Used to specify the environment variables |
+|--headed  | Used to display the browser|
+|--headless  | hide the browser instead of running headed|
+|--quiet, -q| Cypress output will not be printed to stdout|
+|--spec, -s | This is used to specify the spec files that you want to run |
+|--tag, -t | 	This is used to identify a tag or tags.|
+
+
+<h1>What are Run Configurations?</h1>
+{: .h1-text}
+Every testing framework has a set of configuration that can be used to define the test condition. An example of this would be when we want to override a particular setting. We can add these settings at run time and it will help stabilize the tests we want to execute. 
+
+For example, let's say we want to increase a page load because a particular envionrnment is slow. We can ovveride this setting using the following command.
+
+```cypress run --config pageLoadTimeout=100000```
+
+This command will change the default pageLoadTimeout declared in our code and at run time we are declaring the new value.
+
+We can also specify a file for our configuration. This useful when we want to execute in multiple enviornment:
+
+```cypress run --config-file tests/cypress-config.json```
+
+{% highlight html linenos %}
+{
+  "defaultCommandTimeout": 4000,
+  "pageLoadTimeout": 30000
+}
+{% endhighlight %}
+
+<h1>Running a Test Using File or Folder:</h1>
+{: .h1-text}
+
+Since the spec file has the test steps we want to execute, we can provide the path for the spec file in the following argument:
+
+```cypress run --spec "cypress/integration/smoke/test_file.spec.js" ```
+
+We can provide the folder path and it can run multiple spec files
+
+```cypress run --spec "cypress/integration/login/**/*"```
+
+<h1>Running Test Using Tags:</h1>
+{: .h1-text}
+A tag can be used to identify the test case we want to execute. Tags help reduce the test execution time of a big release. For example, suppose there is a bug fix in our code and it was related to login page. Since we don't want to run a full test suite, we can take advantage of a "tag" to execute only the test that are needed.
+
+```cypress run --record --tag "login" ```
+
+Note: The record argument is used to record the test and output to a video file.
+
