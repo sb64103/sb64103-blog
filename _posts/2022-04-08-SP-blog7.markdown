@@ -1,0 +1,86 @@
+---
+layout: post
+title:  "SP-Blog-7-Linting Code"
+date:   2022-04-08 04:07:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>Intro</h1>
+{: .h1-text}
+Linting is the automated way of checking your source code for programmatic and stylistic errors. We use a tool to clean and format code. It can also check code syntax for any programming language.
+
+<img src ="https://cdn-media-1.freecodecamp.org/images/1*XLy2nZkWeQz7gghWtweGKA.gif">
+
+<h1>Lint vs Language</h1>
+{: .h1-text}
+A Lint is a porgram that supports linting. There are many programming language, so we need to use the linting software that best supports our build.
+
+|Language|Lint|
+|:-------------|:-------------|
+|Java| checkstyle, findbugs, pmd, uncrustify |
+|Javascript| clinton, eslint, jshint , quick-lint-js |
+|Python| pylint, yala, black, flake8 |
+|C/C++| cppcheck, clang-format, oclint, uncrustify |
+
+
+There are also language agnostic lint or specific to a file.
+
+||Lint|
+|:-------------|:-------------|
+|Any| coala, commitlint, tidyall|
+|Dockerfile| dockerfile_lint, Dockerlint, hadolint |
+|YAML| spectral, yamlint|
+
+<h1>How to Set up Lint in Project?</h1>
+{: .h1-text}
+We can set up lint in our project by installing the library. Then using the specific commands in the library to format our source code.
+
+For example, let's set up for a typescript project:
+
+```tslint --init```
+
+This will generate a <strong>tslint.json </strong>
+
+{% highlight html linenos %}
+{
+  "extends": [
+    "tslint:recommended"   
+  ],
+  "jsRules": {},
+  "rules": {},
+  "rulesDirectory": []
+}
+{% endhighlight %}
+
+We can then create a rule based on syntax. For example, let's say we want all of our files to use a single quote mark instead of double. We can override that rule using the following value.
+
+```
+rules: {
+  "quotemark": [true, "single"]
+}
+```
+
+<h1>How to Set up using Github Actions?</h1>
+{: .h1-text}
+
+We can also set up using our pipeline builds. In Github Actions, we can create a job to check for Pull Request that should follow a particular format.
+
+This job will require commitlint-github-action library.
+
+```
+name: pr-name-linter
+on:
+  pull_request:
+    types: ['opened', 'edited', 'reopened', 'synchronize']
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install Dependencies
+      run: npm install @commitlint/config-conventional
+    - uses: JulienKode/pull-request-name-linter-action@v0.5.0
+
+```
