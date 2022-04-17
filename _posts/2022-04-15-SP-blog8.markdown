@@ -1,0 +1,57 @@
+---
+layout: post
+title:  "SP-Blog-8-Scrum"
+date:   2022-04-13 04:20:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>What is scrum?</h1>
+{: .h1-text}
+
+Scrum is a framework for IT teams to develop and deploy code to end users quickly. All events are time-boxed. Once a Sprint begins, its duration is fixed and cannot be shortened or lengthened. Being part of a scrum team means that therer are agile ceremonies to attend.
+
+<h1>What is agile?</h1>
+{: .h1-text}
+
+Agile is the ability to create and respond to change frequently. Before agile, there was the waterfall process. This process was a long and slow for software teams so agile started with a manifest. This manifest was designed with the 12 principles. 
+
+Agile is innovative and solutions evolve through collaboration between self-organizing cross-functional teams utilizing the appropriate practices for their context.
+
+<center><img class="center" src="https://wac-cdn.atlassian.com/dam/jcr:709d95de-f4d4-4faf-aa9f-4bead10e888b/sprint_cycle-c.png?cdnVersion=309"></center>
+
+<h1>Scrum master? What do they do?</h1>
+{: .h1-text}
+
+A Scrum master is the title given to the person who manages the scrum team. Their responsibilties include:
+<li> Implement Project Management/Best Practices </li>
+<li> Keep all Parties on Track and Informed </li>
+<li> Introduce Agile Engineering Practices </li>
+
+
+What are sprint ceremonies?
+{: .h1-text}
+
+These are the different meeting that take place during scrum.
+
+|Meeting | Purpose |
+|--------------|------------------------------------|
+|Sprint Planning | ceremony helps to set up the entire team for the coming sprint |
+|Daily Scrum | scrum ceremony makes sure that everyone knows what’s happening |
+|Sprint Review| meeting after sprint completion when the team reviews what is completed |
+|Sprint Retrospective| feedback from the team to discuss what went right and wrong and to include changes for upcoming sprint | 
+|Product Backlog Refinement| The reason for the meeting is to review the backlog and keep it clean and orderly so that it’s ready for the next sprint.|
+
+What does Jira do?
+{: .h1-text}
+
+Jira helps project teams ensure work gets done in a timely manner. We can use Jira to track stories, which have sub task. Each sub task define what the work will be done in order to complete the story.
+
+<img src="https://wac-cdn.atlassian.com/dam/jcr:3511a84d-0372-43fd-a2af-2005a6eabb3f/Screen-scrum%20board.png?cdnVersion=309">
+
+The stories move left to right and based on the stories progression, the team members will update their work on a daily basis. This helps scrum masters know where the particular task is.
+
+Agile and the mindset
+{: .h1-text}
+
+We use tools to determine how to best complete stories in a timely manner. The team ultimately decides what is best for their workflow. Teams can change and know that requirements change as well. The ability to adapt is what is known as the agile mindset. This practice helps team work independently and with remote work on the rise, agile practice is encouraged.
