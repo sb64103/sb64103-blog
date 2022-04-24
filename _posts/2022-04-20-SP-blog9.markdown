@@ -1,0 +1,65 @@
+---
+layout: post
+title:  "SP-Blog-9-Kubernetes"
+date:   2022-04-20 05:20:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>What is Kubernetes?</h1>
+{: .h1-text}
+
+Kubernetes is a container orchestration system that lets you deploy, scale, and manage containerized applications. Kubernetes is an open-source platform/tool created by Google. It is written in GO-Lang. It is also known in its abbreviated form as k8s.
+
+<h1> Why we need Kubernetes? </h1>
+{: .h1-text}
+
+Kubernetes can help us manage containers. The orchestration allows you to build application services that span multiple containers, schedule those containers across a cluster, scale those containers, and manage the health of those containers over time.
+
+<img src="https://miro.medium.com/max/1400/0*GdJIbmPH1JLSLSj1.gif" width="800" height="500">
+
+<h1>What are Kubernetes alternatives?</h1>
+{: .h1-text}
+
+<li> Docker Swarm </li>
+<li> Marathon </li>
+<li> Amazon ECS </li>
+<li> Azure Service Fabric </li>
+<li> Hashicorp Nomad </li>
+
+<br>
+
+<h1>Key Terms Kubernetes</h1>
+{: .h1-text}
+
+|Term|Definition|
+|:-------------|:-------------|
+|Master| the controlling element of the cluster. Master has 3 parts: <br> `API Server` `Scheduler` `Controller Manager`|
+|Slave(Nodes)| machines perform the requested, assigned tasks <br> `Pods` `Kubelet` `Container Engine` `Kube Proxy`|
+
+<h1>Workflow</h1>
+{: .h1-text}
+
+1. Develop an application.
+1. Containerize your application.
+1. Create a kubernetes cluster.
+1. Deploy your container to the cluster. 
+1. Expose and scale the cluster. 
+
+<h1> Installation </h1>
+{: .h1-text}
+
+Using package manager Homebrew
+
+```brew install kind```
+
+Install Go: <a href="https://go.dev/"> Link </a>
+
+<h1> K8 Benefits </h1>
+{: .h1-text}
+
+1. Automates various manual processes and controls server hosting and launching
+1. Manages containers offer security, and networking and storage services
+1. Monitors and continuously checks the health of nodes and containers
+1. Automates rollback for changes that go wrong 
+1. Mounts and adds a storage system to run apps
