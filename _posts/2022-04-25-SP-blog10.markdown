@@ -1,0 +1,97 @@
+---
+layout: post
+title:  "SP-Blog-10-Validation"
+date:   2022-04-25 03:20:45 -0700
+categories: jekyll update
+---
+<link rel="stylesheet" href="/assets/css/style5.css">
+
+<h1>What is Manual Testing?</h1>
+{: .h1-text}
+
+In IT, we need to validate things as they are created. I've tested software for over 10 years now, my day to day include validations manually with complex business scenario. Software QA allows end users to have less bugs because of it.
+
+What is Automated Testing?
+{: .h1-text}
+
+Automated testing requires programmers to understand business scenarios. Automting the right thing is important. One thing to note is the return on your investment. Things take time to build but in the long run, automation helps manual validation because it can help focus on complex scenarios.
+
+What are different automation frameworks for validations?
+
+1. Selenium (Any Language)
+1. Rest-assured (Java), FrisbyJS(JS)
+1. Junit (Java), Jest(JS)
+
+<center> <img src="https://www.drupal.org/files/styles/grid-3-2x/public/images/big-logo.png?itok=0nhPkZpp"> </center>
+<br>
+
+What are different browsers we can test?
+
+1. Mozilla 
+1. Firefox
+1. Chrome
+1. Safari
+1. Mobile (browser)
+
+What are different browsers we can test?
+
+1. Mozilla 
+1. Firefox
+1. Chrome
+
+Gherkin Validation:
+
+
+{% highlight  linenos %}
+
+Given I have a web browser  
+      And I go to "http://website.com"  
+      When enter username "test@validation.com"
+      And i enter password "test123"
+      And I click login
+      Then I should see the page title
+{% endhighlight %}
+
+
+Java Code:
+
+{% highlight  linenos %}
+
+//Given I have a web browser
+driver = new Webdriver()
+
+      //And I go to "http://website.com"  
+      driver.get("http://website.com)
+      //When enter username "test@validation.com"
+      driver.findElement(By.xpath("//input"))
+      And i enter password "test123"
+      driver.findElement(By.xpath("//@id="password")).click()
+      And I click login
+      driver.findElement(By.xpath("//button[@id=login"])).click()
+      Then I should see the page title
+      driver.getTitle()
+
+{% endhighlight %}
+
+Docker + Selenium
+
+The source code needs to compile in order to run. We need the jvm and it can run in any enviornment. This is where docker comes in. We can build a nice image to run the test in a container. Browser configuration can also be set to the ports for each browser is running on.
+
+<li> Build the image </li>
+<li> Download all the libraries </li>
+<li> Validation </li>
+<li> Build the test script </li>
+<li> Run Selenium in Docker image </li>
+<li> Validation Reports </li>
+
+<br>
+Reports
+
+We can write good emailable reports using the following framework. These have dependencies in the language you are using.
+
+Language | Reporting framework     |
+:----------------:| :----------------------------------|
+`Java`           |     Extent Reports      |
+`JS`           | Mocha (built in), Jest (built in|
+`Python`         | pytest-html     |
+`C#`         | Extent Reports       |
